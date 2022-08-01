@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+$font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+$font-size: 15px;
+$line-height: 24px;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$primary-very-dark-magenta: hsl(300, 43%, 22%);
+$primary-soft-pink: hsl(333, 80%, 67%);
+
+$neutral-dark-grayish-magenta: hsl(303, 10%, 53%);
+$neutral-light-grayish-magenta: hsl(300, 24%, 96%);
+$neutral-white: hsl(0, 0%, 100%);
+
+$border-radius-small: 8px;
+$border-radius-rounded: 50px;
+
+:root {
+  color: $neutral-dark-grayish-magenta;
+  font-size: $font-size;
+  line-height: 1.5rem;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url("/src/assets/images/bg-pattern-top-mobile.svg"),
+  url("/src/assets/images/bg-pattern-bottom-mobile.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right bottom;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  margin: 64px 16px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 32px;
+  margin-bottom: 8vh;
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__title {
+      font-size: 2rem;
+      color: $primary-very-dark-magenta;
+      margin: 0 64px;
+      font-weight: 700;
+    }
+  }
+}
+
+.ratings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  width: 100%;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background: $neutral-light-grayish-magenta;
+  color: $primary-very-dark-magenta;
+  font-weight: 700;
+  border-radius: $border-radius-small;
+
+  &__icon {
+    color: rgb(239, 149, 70);
+  }
+}
+
+.socialCards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.socialCard {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+  background: $primary-very-dark-magenta;
+  color: $neutral-white;
+  border-radius: $border-radius-small;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &__avatar {
+      height: 50px;
+      width: 50px;
+      border-radius: $border-radius-rounded;
+    }
+
+    &__title {
+      margin-bottom: 8px;
+    }
+
+    &__isVerified {
+      color: $primary-soft-pink;
+    }
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .container {
+    margin: 64px 32px;
+  }
+  .hero {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-bottom: 8vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    background-image: url("/src/assets/images/bg-pattern-top-desktop.svg"),
+    url("/src/assets/images/bg-pattern-bottom-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
+  }
+
+  .container {
+    margin: 64px 128px;
+  }
+
+  .hero {
+    margin-bottom: 64px;
+    text-align: start;
+
+    &__intro {
+      margin-right: 200px;
+
+      &__title {
+        font-size: 3rem;
+        line-height: 2.5rem;
+        margin: 0 100px 0 0;
+      }
+
+      &__description {
+        margin-right: 32px;
+      }
+    }
+  }
+
+  .ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vh;
+    width: 100%;
+
+    .rating:nth-child(2) {
+      margin-left: 64px;
+    }
+
+    .rating:nth-child(3) {
+      margin-left: 128px;
+    }
+  }
+
+  .rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 75%;
+    background: $neutral-light-grayish-magenta;
+    color: $primary-very-dark-magenta;
+    font-weight: 700;
+    border-radius: $border-radius-small;
+
+    > div {
+      display: flex;
+    }
+
+    &__icon {
+      color: rgb(239, 149, 70);
+    }
+
+    &__description {
+      margin: 4px 0 0 24px;
+      align-items: baseline;
+    }
+  }
+
+  .socialCards {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+
+    .socialCard:nth-child(2) {
+      margin-top: 16px;
+    }
+
+    .socialCard:nth-child(3) {
+      margin-top: 32px;
+    }
+  }
+
+  .socialCard {
+    height: 250px;
+  }
+}
